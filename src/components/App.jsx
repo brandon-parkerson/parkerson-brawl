@@ -3,20 +3,18 @@ import { useEffect } from "react";
 import '../styles/App.css'
 import StartMenu from "./StartMenu";
 
-// TODO: GET START MENU TO WORK
+// TODO: GET PLAYER NAME
 
 
 export default function App() {
     const [gameState, setGameState] = useState("start");
-    
+    const [playerName, setPlayerName] = useState("");
 
-    function HandleStartButtonClick(clicked) {
-        if (clicked == true) {
-            return (
-                <p>Player hit start button</p>
-            )
-        }
+    function handleStartButtonClick() {
+            setGameState("begun");
     }
+
+    
 
     
 
@@ -24,8 +22,8 @@ export default function App() {
     return (
         <>
             <h1>Parkerson Brawl</h1>
-            <StartMenu started={gameState} />
-            <HandleStartButtonClick />
+            <StartMenu started={gameState} onStartClick={handleStartButtonClick} />
+            {gameState == "begun" && <p>Game has begun</p>}
            
         </>
     )

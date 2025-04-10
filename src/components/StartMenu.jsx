@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styles from '../styles/StartMenu.module.css'
 
-export default function StartMenu({ started, onStartClick }) {
+export default function StartMenu({ started, onStartClick  }) {
 
     const [name, setName] = useState("");
-    function handleClick() {
-        
+    const handleClick = () => {
+        onStartClick();
     }
 
     if (started == "start") {
